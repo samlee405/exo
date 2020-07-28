@@ -1,0 +1,36 @@
+[
+  "war'sGauntlet": [
+    {
+      "stat": "Vitality",
+      "minValue": 300
+    },
+    {
+      "stat": "Intelligence",
+      "minValue": 54
+    },
+    {
+      "stat": "Wisdom",
+      "minValue": 15
+    },
+    {
+      "stat": "Critical",
+      "minValue": 3
+    },
+    {
+      "stat": "Fire Damage",
+      "minValue": 8
+    },
+    {
+      "stat": "Earth Resistance",
+      "minValue": 6
+    },
+    {
+      "stat": "Air Resistance",
+      "minValue": 6
+    },
+    {
+      "stat": "Critical Damage",
+      "minValue": 13
+    },
+  ]
+]
