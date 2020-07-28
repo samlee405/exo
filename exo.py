@@ -9,6 +9,8 @@ root_dir = os.path.dirname(os.path.abspath(__file__))
 
 def take_screen_shot():
     image = pyscreenshot.grab(bbox=(730, 315, 975, 900))
+    width, height = image.size
+    image = image.resize((width*3, height*3))
     image.save(os.path.join(root_dir, "images", "screenshot.png"))
 
 
