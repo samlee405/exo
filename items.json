@@ -2,6 +2,46 @@
   "warGauntlet": {
     "stats": [
       {
+        "stat": "Vitality",
+        "threshold": 284,
+        "position": {
+          "x": 1133,
+          "y": 336
+        }
+      },
+      {
+        "stat": "Intelligence",
+        "threshold": 50,
+        "position": {
+          "x": 1130,
+          "y": 375
+        }
+      },
+      {
+        "stat": "Wisdom",
+        "threshold": 13,
+        "position": {
+          "x": 1130,
+          "y": 420
+        }
+      },
+      {
+        "stat": "% Earth Resistance",
+        "threshold": 4,
+        "position": {
+          "x": 1066,
+          "y": 582
+        }
+      },
+      {
+        "stat": "% Air Resistance",
+        "threshold": 4,
+        "position": {
+          "x": 1066,
+          "y": 625
+        }
+      },
+      {
         "stat": "% Critical",
         "threshold": 3,
         "position": {
@@ -55,14 +95,6 @@
         "position": {
           "x": 1189,
           "y": 335
-        }
-      },
-      {
-        "stat": "Wisdom",
-        "threshold": 15,
-        "position": {
-          "x": 1130,
-          "y": 420
         }
       }
     ]
