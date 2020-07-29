@@ -1,36 +1,70 @@
-[
-  "war'sGauntlet": [
-    {
-      "stat": "Vitality",
-      "minValue": 300
-    },
-    {
-      "stat": "Intelligence",
-      "minValue": 54
-    },
-    {
-      "stat": "Wisdom",
-      "minValue": 15
-    },
-    {
-      "stat": "Critical",
-      "minValue": 3
-    },
-    {
-      "stat": "Fire Damage",
-      "minValue": 8
-    },
-    {
-      "stat": "Earth Resistance",
-      "minValue": 6
-    },
-    {
-      "stat": "Air Resistance",
-      "minValue": 6
-    },
-    {
-      "stat": "Critical Damage",
-      "minValue": 13
-    },
-  ]
-]
+{
+  "warGauntlet": {
+    "stats": [
+      {
+        "stat": "% Critical",
+        "threshold": 3,
+        "position": {
+          "x": 1069,
+          "y": 461
+        }
+      },
+      {
+        "stat": "Fire Damage",
+        "threshold": 8,
+        "position": {
+          "x": 1070,
+          "y": 504
+        }
+      },
+      {
+        "stat": "Critical Damage",
+        "threshold": 13,
+        "position": {
+          "x": 1070,
+          "y": 675
+        }
+      },
+      {
+        "stat": "% Earth Resistance",
+        "threshold": 6,
+        "position": {
+          "x": 1070,
+          "y": 586
+        }
+      },
+      {
+        "stat": "% Air Resistance",
+        "threshold": 6,
+        "position": {
+          "x": 1070,
+          "y": 630
+        }
+      },
+      {
+        "stat": "Intelligence",
+        "threshold": 54,
+        "position": {
+          "x": 1130,
+          "y": 375
+        }
+      },
+      {
+        "stat": "Vitality",
+        "threshold": 300,
+        "position": {
+          "x": 1189,
+          "y": 335
+        }
+      },
+      {
+        "stat": "Wisdom",
+        "threshold": 15,
+        "position": {
+          "x": 1130,
+          "y": 420
+        }
+      }
+    ]
+  }
+}
