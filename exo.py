@@ -24,72 +24,77 @@ should_stop_maging = False
 is_running = False
 
 
-def take_screen_shot():
-    image = pyscreenshot.grab(bbox=(730, 315, 975, 900))
-    image.save(screen_shot_path)
+def take_screen_shot(should_stop_maging):
+    if not should_stop_maging:
+        image = pyscreenshot.grab(bbox=(730, 315, 975, 900))
+        image.save(screen_shot_path)
 
 
-def image_preprocessing():
-    image = cv2.imread(screen_shot_path)
+def image_preprocessing(should_stop_maging):
+    if not should_stop_maging:
+        image = cv2.imread(screen_shot_path)
 
-    image = cv2.resize(image, None, fx=2, fy=2, interpolation=cv2.INTER_CUBIC) # increase image size
-    image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY) # image to grayscale
-    image = cv2.bitwise_not(image) # invert colors (lighter backgrounds seem to lead to better results)
-    image = cv2.threshold(image, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1] # increase contrast
+        image = cv2.resize(image, None, fx=2, fy=2, interpolation=cv2.INTER_CUBIC) # increase image size
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY) # image to grayscale
+        image = cv2.bitwise_not(image) # invert colors (lighter backgrounds seem to lead to better results)
+        image = cv2.threshold(image, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1] # increase contrast
 
-    cv2.imwrite(screen_shot_path, image)
-
-
-def get_text_from_image():
-    return pytesseract.image_to_string(Image.open(screen_shot_path))
+        cv2.imwrite(screen_shot_path, image)
 
 
-def get_stats_from_text(raw_text):
-    text_list = raw_text.split("\n")
-    stats = {}
-
-    for text in text_list:
-        text = text.strip()
-        if text == "":
-            continue
-
-        if any(char.isdigit() for char in text):
-            split_text = text.split(" ")
-            value = split_text[0]
-            del split_text[0]
-            stat = " ".join(split_text)
-            if "%" in value:
-                value = value.replace("%", "")
-                stat = "% " + stat
-            stats[stat] = int(value)
-        else:
-            split_text = text.split(" ")
-            value = 0
-            stat = " ".join(split_text)
-            stats[stat] = int(value)
-
-    return stats
+def get_text_from_image(should_stop_maging):
+    if not should_stop_maging:
+        return pytesseract.image_to_string(Image.open(screen_shot_path))
 
 
-def mage(stats, item):
-    with open("items.json", "r") as file:
-        data = json.load(file)
-        item_data = data[item]
+def get_stats_from_text(should_stop_maging, raw_text):
+    if not should_stop_maging:
+        text_list = raw_text.split("\n")
+        stats = {}
 
-        is_done = True
+        for text in text_list:
+            text = text.strip()
+            if text == "":
+                continue
 
-        for stat_data in item_data["stats"]:
-            stat = stat_data["stat"]
-            if stats[stat] <= stat_data["threshold"]:
-                pyautogui.moveTo(stat_data["position"]["x"], stat_data["position"]["y"], 0.1)
-                pyautogui.doubleClick()
-                pyautogui.moveTo(1010, 240, 0.2)
-                pyautogui.dragTo(1010, 240, button = 'left')
-                pyautogui.click(1010, 240)
-                is_done = False
-                break
+            if any(char.isdigit() for char in text):
+                split_text = text.split(" ")
+                value = split_text[0]
+                del split_text[0]
+                stat = " ".join(split_text)
+                if "%" in value:
+                    value = value.replace("%", "")
+                    stat = "% " + stat
+                stats[stat] = int(value)
+            else:
+                split_text = text.split(" ")
+                value = 0
+                stat = " ".join(split_text)
+                stats[stat] = int(value)
 
-        return is_done
+        return stats
+
+
+def mage(should_stop_maging, stats, item):
+    if not should_stop_maging:
+        with open("items.json", "r") as file:
+            data = json.load(file)
+            item_data = data[item]
+
+            is_done = True
+
+            for stat_data in item_data["stats"]:
+                stat = stat_data["stat"]
+                if stats[stat] <= stat_data["threshold"]:
+                    pyautogui.moveTo(stat_data["position"]["x"], stat_data["position"]["y"], 0.1)
+                    pyautogui.doubleClick()
+                    pyautogui.moveTo(1010, 240, 0.2)
+                    pyautogui.dragTo(1010, 240, button = 'left')
+                    pyautogui.click(1010, 240)
+                    is_done = False
+                    break
+
+            return is_done
 
 
 def run_maging_script(item):
@@ -97,15 +102,16 @@ def run_maging_script(item):
     global is_running
     is_done = False
     while not is_done and not should_stop_maging:
-        take_screen_shot()
-        image_preprocessing()
-        raw_text = get_text_from_image()
-        stats = get_stats_from_text(raw_text)
-        is_done = mage(stats, item)
+        take_screen_shot(should_stop_maging)
+        image_preprocessing(should_stop_maging)
+        raw_text = get_text_from_image(should_stop_maging)
+        stats = get_stats_from_text(should_stop_maging, raw_text)
+        is_done = mage(should_stop_maging, stats, item)
 
         time.sleep(0.5)
 
     if is_done:
+        print("Maging finished")
         should_stop_maging = True
         is_running = False
         sounds = [f for f in os.listdir(os.path.join(root_dir, "sounds"))]
