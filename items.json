@@ -2,6 +2,38 @@
   "warGauntlet": {
     "stats": [
       {
+        "stat": "% Earth Resistance",
+        "threshold": 1,
+        "position": {
+          "x": 1066,
+          "y": 582
+        }
+      },
+      {
+        "stat": "% Air Resistance",
+        "threshold": 1,
+        "position": {
+          "x": 1066,
+          "y": 625
+        }
+      },
+      {
+        "stat": "Fire Damage",
+        "threshold": 5,
+        "position": {
+          "x": 1070,
+          "y": 504
+        }
+      },
+      {
+        "stat": "Critical Damage",
+        "threshold": 9,
+        "position": {
+          "x": 1070,
+          "y": 675
+        }
+      },
+      {
         "stat": "Vitality",
         "threshold": 284,
         "position": {
