@@ -53,14 +53,20 @@ def get_stats_from_text(raw_text):
         if text == "":
             continue
 
-        split_text = text.split(" ")
-        value = split_text[0]
-        del split_text[0]
-        stat = " ".join(split_text)
-        if "%" in value:
-            value = value.replace("%", "")
-            stat = "% " + stat
-        stats[stat] = int(value)
+        if any(char.isdigit() for char in text):
+            split_text = text.split(" ")
+            value = split_text[0]
+            del split_text[0]
+            stat = " ".join(split_text)
+            if "%" in value:
+                value = value.replace("%", "")
+                stat = "% " + stat
+            stats[stat] = int(value)
+        else:
+            split_text = text.split(" ")
+            value = 0
+            stat = " ".join(split_text)
+            stats[stat] = int(value)
 
     return stats
 
