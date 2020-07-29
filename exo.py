@@ -8,7 +8,8 @@ from pynput import keyboard
 import json
 import time
 import threading
-import timeit
+from playsound import playsound
+import random
 
 
 pytesseract.pytesseract.tesseract_cmd = r"C:\Users\Sam\AppData\Local\Tesseract-OCR\tesseract.exe"
@@ -86,6 +87,8 @@ def mage(stats, item):
 
 
 def run_maging_script(item):
+    global should_stop_maging
+    global is_running
     is_done = False
     while not is_done and not should_stop_maging:
         take_screen_shot()
@@ -97,8 +100,11 @@ def run_maging_script(item):
         time.sleep(0.5)
 
     if is_done:
-        print("Maging finished")
-
+        should_stop_maging = True
+        is_running = False
+        sounds = [f for f in os.listdir(os.path.join(root_dir, "sounds"))]
+        file_path = os.path.join(root_dir, "sounds", sounds[random.randint(0, len(sounds) - 1)])
+        playsound(file_path)
 
 def main(item):
     def on_press(key):
