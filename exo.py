@@ -145,4 +145,4 @@ def main(item):
 
 
 if __name__ == "__main__":
-    main("warGauntlet")
+    main("corruptionsRing")

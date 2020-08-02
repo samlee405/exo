@@ -51,9 +51,9 @@
       },
       {
         "stat": "Wisdom",
-        "threshold": 13,
+        "threshold": 11,
         "position": {
-          "x": 1130,
+          "x": 1190,
           "y": 420
         }
       },
@@ -115,7 +115,7 @@
       },
       {
         "stat": "Intelligence",
-        "threshold": 54,
+        "threshold": 53,
         "position": {
           "x": 1130,
           "y": 375
@@ -127,6 +127,122 @@
         "position": {
           "x": 1189,
           "y": 335
+        }
+      }
+    ]
+  },
+  "corruptionsRing": {
+    "stats": [
+      {
+        "stat": "Critical Damage",
+        "threshold": 6,
+        "position": {
+          "x": 1075,
+          "y": 670
+        }
+      },
+      {
+        "stat": "% Water Resistance",
+        "threshold": 6,
+        "position": {
+          "x": 1075,
+          "y": 588
+        }
+      },
+      {
+        "stat": "Neutral Damage",
+        "threshold": 8,
+        "position": {
+          "x": 1075,
+          "y": 500
+        }
+      },
+      {
+        "stat": "Earth Damage",
+        "threshold": 8,
+        "position": {
+          "x": 1075,
+          "y": 550
+        }
+      },
+      {
+        "stat": "% Critical",
+        "threshold": 3,
+        "position": {
+          "x": 1075,
+          "y": 460
+        }
+      },
+      {
+        "stat": "Vitality",
+        "threshold": 235,
+        "position": {
+          "x": 1130,
+          "y": 340
+        }
+      },
+      {
+        "stat": "Strength",
+        "threshold": 50,
+        "position": {
+          "x": 1187,
+          "y": 380
+        }
+      },
+      {
+        "stat": "Wisdom",
+        "threshold": 10,
+        "position": {
+          "x": 1187,
+          "y": 422
+        }
+      },
+      {
+        "stat": "% Critical",
+        "threshold": 6,
+        "position": {
+          "x": 1075,
+          "y": 460
+        }
+      },
+      {
+        "stat": "Critical Damage",
+        "threshold": 8,
+        "position": {
+          "x": 1075,
+          "y": 670
+        }
+      },
+      {
+        "stat": "% Water Resistance",
+        "threshold": 9,
+        "position": {
+          "x": 1075,
+          "y": 588
+        }
+      },
+      {
+        "stat": "Neutral Damage",
+        "threshold": 10,
+        "position": {
+          "x": 1075,
+          "y": 500
+        }
+      },
+      {
+        "stat": "Earth Damage",
+        "threshold": 10,
+        "position": {
+          "x": 1075,
+          "y": 550
+        }
+      },
+      {
+        "stat": "Strength",
+        "threshold": 53,
+        "position": {
+          "x": 1129,
+          "y": 388
         }
       }
     ]
